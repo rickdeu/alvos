@@ -1,0 +1,165 @@
+{% load static %}
+
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+<script src="{% static 'core/js/alvos.js' %}"></script>
+
+
+
+
+
+
+
+
+<body>
+
+  
+  
+
+
+  <!--<div id="map"></div>-->
+
+  <div id="map" >
+  
+  </div>
+
+  
+
+
+  <div aria-labelledby="myModalLabel" class="modal left fade" id="emptymodal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Alvo nº <strong id="idalvo"></strong></h4>
+        </div>
+        <div class="modal-body">
+
+          <h1 class="text-primary" > Nome do alvo: <br><b id="nomedetailalvo"> </b> </h1>
+          <hr>
+          <h3 class="text-success" > Data de expiração: <br><b id="datedetailalvo"></b></h3>
+        </div>
+        <div class="modal-footer">
+     
+    <button type="button" id="btn_update" class="btn btn-primary js-create-alvo" data-url="{% url 'core:alvo_update' 35 %}">
+      <span class="glyphicon glyphicon-edit"></span>
+      Editar alvo
+    </button>
+
+    <button type="button" id="btn_update" class="btn btn-danger js-create-alvo" data-url="{% url 'core:alvo_delete' 35 %}">
+      <span class="glyphicon glyphicon-trash"></span>
+      Eliminar alvo
+    </button>
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+<script>
+
+
+// Where you want to render the map.
+var element = document.getElementById('map');
+
+// Height has to be set. You can do this in CSS too.
+element.style = 'width:auto; height:100%';
+
+
+
+  /*Custom marker */
+PlaceMarker = L.CircleMarker.extend({
+  options: {
+    id: ''
+  }
+});
+/*Include the marker data and create the layers */
+var data = [
+{% for alvo in alvo %} 
+
+["{{ alvo.nome_alvo }}" , "{{ alvo.data_expiracao }}", "{{ alvo.id }}", {{alvo.lat}}, {{ alvo.lon }}],
+
+{% empty %}
+
+["Angola", "1", -8.83682, 13.23432],
+
+
+
+
+{% endfor %}
+
+];
+var layer = new L.LayerGroup();
+for (var i = 0; i < data.length; i++) {
+    marker = new PlaceMarker([data[i][3], data[i][4]], {
+      color: "red",
+      name: data[i][0],
+      date: data[i][1],
+      id: data[i][2],
+
+    }).addTo(layer).on('click', markerOnClick);
+  
+}
+
+
+/* Some handy variables*/
+var booklayers = [layer]
+  /*Initialise map; change zoom control position*/
+var map = L.map('map', {
+  layers: booklayers
+}).setView([-8.83682, 13.23432], 5);
+map.zoomControl.setPosition('bottomright');
+/*Add tileLayers*/
+mapLink = '<a href="http://openstreetmap.org">OpenStreetMap<\/a>';
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; ' + mapLink + ' Contributors',
+  maxZoom: 18,
+}).addTo(map);
+/* Open modal & center map on marker click 	*/
+function markerOnClick(e) {
+  var id = this.options.id;
+  var name = this.options.name;
+  var date = this.options.date;
+
+
+  //$(".modal-body").html('This is marker ' + id);
+  $("#idalvo").html(id);
+  $("#nomedetailalvo").html(name);
+  $("#datedetailalvo").html(date);
+
+  //$("#btn_update").html(id);
+
+ 
+
+
+  $('#emptymodal').modal('show');
+  map.setView(e.target.getLatLng());
+  e.preventDefault();
+}
+/*Close modal on map click */
+map.on('click', function(e) {
+  $('.modal').modal('hide');
+});
+
+
+ 
+
+</script>
+
+
+
+
+
+</body>
+

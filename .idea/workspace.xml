@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5660c3eb-9ba1-4b57-b707-5788384790bd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1mDMZEmg4ocCYJEcOldMKRJDzBM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5660c3eb-9ba1-4b57-b707-5788384790bd" name="Default Changelist" comment="" />
+      <created>1609023761084</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609023761084</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="489" y="140" width="447" height="513" key="FileChooserDialogImpl" timestamp="1609025569311">
+      <screen x="69" y="27" width="1297" height="741" />
+    </state>
+    <state x="489" y="140" width="447" height="513" key="FileChooserDialogImpl/69.27.1297.741@69.27.1297.741" timestamp="1609025569311" />
+    <state x="570" y="291" width="295" height="272" key="Github.ShareDialog" timestamp="1609025547996">
+      <screen x="69" y="27" width="1297" height="741" />
+    </state>
+    <state x="570" y="291" width="295" height="272" key="Github.ShareDialog/69.27.1297.741@69.27.1297.741" timestamp="1609025547996" />
+    <state x="489" y="87" width="446" height="619" key="svn.repositoryBrowser" timestamp="1609025560035">
+      <screen x="69" y="27" width="1297" height="741" />
+    </state>
+    <state x="489" y="87" width="446" height="619" key="svn.repositoryBrowser/69.27.1297.741@69.27.1297.741" timestamp="1609025560035" />
+  </component>
+</project>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>LISTA DE ALVOS</title>
+  </head>
+
+
+  <body>
+    
+  
+  <div class="btn-group" style="z-index: 1001; margin: 5px;">
+    <!--<button type="buttons" id="others" class="btn btn-default">NOVO ALVO</button>-->
+
+    <button type="button" class="btn btn-primary js-create-alvo" data-url="{% url 'core:alvo_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      Novo alvo
+    </button>
+  </div>
+
+{% include 'core/includes/partial_alvo_list.html' %}
+
+<div class="modal" id="modal-alvo">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+     
+      </div>
+    </div>
+</div>
+
+</body>
+</html>
+  
