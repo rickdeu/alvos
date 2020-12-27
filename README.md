@@ -1,4 +1,7 @@
-Requirements
+<h1>Requirements</h1>
 
-Django
-django-widget-tweaks
+
+<h3>Django</h3>
+<h3>django-widget-tweaks</h3>
+
+
