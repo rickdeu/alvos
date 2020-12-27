@@ -50,12 +50,12 @@
         </div>
         <div class="modal-footer">
      
-    <button type="button" id="btn_update" class="btn btn-primary js-create-alvo" data-url="{% url 'core:alvo_update' 35 %}">
+    <button type="button" id="btn_update" class="btn btn-primary js-create-alvo" data-url="{% url 'core:alvo_update' 1 %}">
       <span class="glyphicon glyphicon-edit"></span>
       Editar alvo
     </button>
 
-    <button type="button" id="btn_update" class="btn btn-danger js-create-alvo" data-url="{% url 'core:alvo_delete' 35 %}">
+    <button type="button" id="btn_update" class="btn btn-danger js-create-alvo" data-url="{% url 'core:alvo_delete' 1 %}">
       <span class="glyphicon glyphicon-trash"></span>
       Eliminar alvo
     </button>
@@ -118,7 +118,7 @@ var booklayers = [layer]
   /*Initialise map; change zoom control position*/
 var map = L.map('map', {
   layers: booklayers
-}).setView([-8.83682, 13.23432], 5);
+}).setView([-8.83682, 13.23432], 12.5);
 map.zoomControl.setPosition('bottomright');
 /*Add tileLayers*/
 mapLink = '<a href="http://openstreetmap.org">OpenStreetMap<\/a>';
